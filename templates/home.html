@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load main_tags %}
+
+{% block content %}
+<section class="home">
+    <div class="swiper mySwiper home-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Факт!</span>
+                    <h3>Польза от общего массажа тела</h3>
+                    <p>Польза массажа для тела всеохватывающа – это отдых и восстановление для всего организма, это абсолютно безвредное воздействие
+                        на самые уязвимые точки тела – и порой он может вылечить больше, чем традиционная медицина.
+                    </p>
+                    <a href="#" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="{% static '/images/1_stat.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Факт!</span>
+                    <h3>Польза массажа для нервной системы</h3>
+                    <p>Если говорить, чем полезен массаж для нервной системы, следует упомянуть такие преимущества:<br/>
+                        <strong>- улучшение проводимости нервных окончаний;</strong><br/>
+                        <strong>- успокоение или возбуждение нервной системы;</strong><br/>
+                        <strong>- избавление от болей и нервного напряжения.</strong>
+                    </p>
+                    <a href="#" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="{% static '/images/3_stat.jpg' %}" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide slide">
+                <div class="content">
+                    <span>Факт!</span>
+                    <h3>Польза массажа для мышц</h3>
+                    <p>Существует множество положительных воздействий массажа на мышцы, таких как: <br/>
+                        <strong>- восстановление работоспособности мышц после усиленных тренировок;</strong><br/>
+                        <strong>- улучшение подвижности суставов;</strong><br/>
+                        <strong>- выведение молочной кислоты;</strong><br/>
+                        <strong>- стимуляция притока крови к мышцам.</strong>
+                    </p>
+                    <a href="#" class="btn">order now</a>
+                </div>
+                <div class="image">
+                    <img src="{% static '/images/5_stat.jpg' %}" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</section>
+
+<section class="cart-item" id="cart-item">
+    <h1 class="heading"> Популярные услуги </h1>
+
+    <div class="box-container">
+        {% for obj in object_list %}
+            <div class="box">
+                <a href="#" class="fas fa-heart"></a>
+                <a href="{{ obj.get_absolute_url }}" class="fas fa-eye"></a>
+                <img src="{{ obj.image.url }}" alt="">
+                <h3>{{ obj.name|truncatechars:20 }}</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <h3>${{ obj.price }}</h3>
+                <a href="{{ obj.get_absolute_url }}" class="btn">Подробней</a>
+            </div>
+        {% endfor %}
+    </div>
+
+</section>
+
+{% include 'review.html' %}
+
+{% endblock content %}

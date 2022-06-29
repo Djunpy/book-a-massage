@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load main_tags %}
+
+{% block content %}
+    <section class="detail-item">
+        <h1 class="heading"> {{ object.name }} </h1>
+        <div class="box-container">
+            <div class="box">
+                <div class="image">
+                    <img src="{{ object.image.url }}" alt="">
+                </div>
+                <div class="content">
+                    <p>{{ object.desc }}</p>
+                    <div class="stars">
+                        <i class="fas fa-star" id="first"></i>
+                        <i class="fas fa-star" id="second"></i>
+                        <i class="fas fa-star" id="third"></i>
+                        <i class="fas fa-star" id="fourth"></i>
+                        <i class="fas fa-star-half-alt" id="fifth"></i>
+                    </div>
+                    <h3>${{ object.price }}</h3>
+                    <a href="{{ obj.get_absolute_url }}" class="btn">Записаться</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="order" id="order">
+
+        <h2 class="heading"> Поделись впечатлением </h2>
+
+        <form action="{% url 'main:add-comment' object.id %}" method="post">
+            {% csrf_token %}
+
+            <div class="inputBox">
+                <div class="input">
+                    <span>Ваше имя</span>
+                    <input type="text" placeholder="напишите имя" name="name">
+                </div>
+                <div class="input">
+                    <span>Ваш email</span>
+                    <input type="email" placeholder="напишите почту" name="email">
+                </div>
+            </div>
+            <div class="inputBox">
+                <div class="input">
+                    <span>Комментарий</span>
+                    <textarea name="body" placeholder="напишите комментарий" id="" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+
+            <input type="submit" value="Поделится" class="btn">
+
+        </form>
+
+    </section>
+{% endblock %}

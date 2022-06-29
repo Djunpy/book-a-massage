@@ -1,0 +1,35 @@
+{% load static %}
+{% load main_tags %}
+{% get_comments as comments %}
+<section class="review" id="review">
+
+    <h1 class="heading"> Отзывы </h1>
+
+    <div class="swiper-container review-slider">
+        {% for comment in comments %}
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide">
+                <i class="fas fa-quote-right"></i>
+                <div class="user">
+                    <img src="{% static 'images/noavatar.png' %}" alt="">
+                    <div class="user-info">
+                        <h3>{{ comment.name }}</h3>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>{{ comment.body }}</p>
+            </div>
+        {% endfor %}
+
+
+        </div>
+
+    </div>
+
+</section>
