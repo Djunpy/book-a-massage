@@ -31,9 +31,9 @@ class AddComment(generic.View):
         form = CommentForm(request.POST)
         success_msg = "Flavor created!"
         if form.is_valid():
-            name = request.POST.get('name')
-            email = request.POST.get('email')
-            body = request.POST.get('body')
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            body = form.cleaned_data['body']
             Comment.objects.update_or_create(
                 name=name,
                 email=email,
@@ -55,9 +55,9 @@ class AddBookingView(generic.View):
         form = BookingForm(request.POST)
 
         if form.is_valid():
-            username = request.POST.get('username')
-            email = request.POST.get('email')
-            the_date = request.POST.get('the_date')
+            username = form.cleaned_data['username']
+            email = form.cleaned_data['email']
+            the_date = form.cleaned_data['the_date']
             Booking.objects.update_or_create(
                 massage=massage,
                 username=username,
