@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Massage, Comment
+from .models import Massage, Comment, Booking
 from rating.models import Rating, RatingStar
 
 
@@ -17,6 +17,7 @@ class MassageAdminPanel(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+admin.site.register(Booking)
 admin.site.register(Rating)
 admin.site.register(RatingStar)
 

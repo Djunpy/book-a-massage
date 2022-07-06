@@ -13,7 +13,6 @@
                     <p>Польза массажа для тела всеохватывающа – это отдых и восстановление для всего организма, это абсолютно безвредное воздействие
                         на самые уязвимые точки тела – и порой он может вылечить больше, чем традиционная медицина.
                     </p>
-                    <a href="#" class="btn">order now</a>
                 </div>
                 <div class="image">
                     <img src="{% static '/images/1_stat.jpg' %}" alt="">
@@ -28,7 +27,6 @@
                         <strong>- успокоение или возбуждение нервной системы;</strong><br/>
                         <strong>- избавление от болей и нервного напряжения.</strong>
                     </p>
-                    <a href="#" class="btn">order now</a>
                 </div>
                 <div class="image">
                     <img src="{% static '/images/3_stat.jpg' %}" alt="">
@@ -44,7 +42,6 @@
                         <strong>- выведение молочной кислоты;</strong><br/>
                         <strong>- стимуляция притока крови к мышцам.</strong>
                     </p>
-                    <a href="#" class="btn">order now</a>
                 </div>
                 <div class="image">
                     <img src="{% static '/images/5_stat.jpg' %}" alt="">
@@ -63,8 +60,6 @@
     <div class="box-container">
         {% for obj in object_list %}
             <div class="box">
-                <a href="#" class="fas fa-heart"></a>
-                <a href="{{ obj.get_absolute_url }}" class="fas fa-eye"></a>
                 <img src="{{ obj.image.url }}" alt="">
                 <h3>{{ obj.name|truncatechars:20 }}</h3>
                 <div class="stars">

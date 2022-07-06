@@ -20,7 +20,8 @@ class Massage(models.Model):
 class Booking(models.Model):
     username = models.CharField(max_length=80)
     email = models.EmailField(max_length=100)
-    the_date = models.DateTimeField()
+    the_date = models.DateField()
+    the_time = models.TimeField(blank=True, null=True)
     massage = models.ForeignKey(Massage, on_delete=models.CASCADE)
 
     def __str__(self):
@@ -38,6 +39,10 @@ class Comment(models.Model):
 
     class Meta:
         ordering = ('created',)
+
+    @property
+    def get_massage(self):
+        return self.massage.name
 
     def __str__(self):
         return f'Comment by {self.name} on {self.massage}'

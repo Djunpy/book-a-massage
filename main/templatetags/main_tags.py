@@ -6,5 +6,5 @@ register = template.Library()
 
 
 @register.simple_tag
-def get_comments(qs=5):
+def get_comments():
     return Comment.objects.all()

@@ -67,21 +67,22 @@ a{
 
 }
 
-.modal{
+.modal.active{
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
+
 
 .modal h1{
     text-align: center;
     font-size: 4rem;
 }
 
-.modal .overlay{
+.modal  .overlay{
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
@@ -91,6 +92,38 @@ a{
 }
 
 .modal-window{
+    position: relative;
+    z-index: 2;
+    width: 650px;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px rgba(0,0,0,.2);
+    background-color: #fff;
+    padding: 15px;
+}
+
+
+
+
+.modal-form{
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.modal-form .overlay{
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: #6c757d;
+    opacity: 0.7;
+    z-index: 0;
+}
+
+.modal-form .booking-form{
     position: relative;
     z-index: 2;
     width: 650px;
@@ -113,9 +146,9 @@ a{
 
 header{
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top:0; left: 0; right:0;
     background: #fff;
-    padding: 1rem 7%;
+    padding:1rem 7%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -125,7 +158,7 @@ header{
 
 
 header .logo{
-    color: var(--black);
+    color:var(--black);
     font-size: 2.5rem;
     font-weight: bolder;
 }
@@ -137,8 +170,8 @@ header .logo i{
 header .navbar a{
     font-size: 1.7rem;
     border-radius: .5rem;
-    padding: .5rem 1.5rem;
-    color: var(--light-color);
+    padding:.5rem 1.5rem;
+    color:var(--light-color);
 }
 
 header .navbar a.active,
@@ -151,11 +184,12 @@ header .icons i,
 header .icons a{
     cursor: pointer;
     margin-left: .5rem;
-    height: 4.5rem;
+    height:4.5rem;
     line-height: 4.5rem;
-    width: 4.5rem;
+    width:4.5rem;
     text-align: center;
-    color: var(--black);
+    font-size: 1.7rem;
+    color:var(--black);
     border-radius: 50%;
     background: #eee;
 }
@@ -265,7 +299,7 @@ header .icons #menu-bars{
 }
 
 .cart-item .box-container .box img{
-    height:17rem;
+    height:25rem;
     margin:1rem 0;
 }
 
@@ -291,6 +325,8 @@ header .icons #menu-bars{
 }
 
 .review .slide{
+    height: 250px;
+    width: 400px;
     padding:2rem;
     box-shadow:var(--box-shadow);
     border:.1rem solid rgba(0,0,0,.2);
@@ -592,31 +628,32 @@ header .icons #menu-bars{
 }
 
 @media (max-width: 768px) {
-     header .icons #menu-bars{
+    header .icons #menu-bars{
         display: inline-block;
     }
 
-     header .navbar{
-         position: absolute;
-         top: 100%; left: 0; right: 0;
-         background: #fff;
-         border-top: .1rem solid rgba(0,0,0,.2);
-         border-bottom: .1rem solid rgba(0,0,0,.2);
-         padding:1rem;
-         clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
-     }
+    header .navbar{
+        position: absolute;
+        display: block;
+        top:100%; left:0; right:0;
+        background:#fff;
+        border-top: .1rem solid rgba(0,0,0,.2);
+        border-bottom: .1rem solid rgba(0,0,0,.2);
+        padding:1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
 
-      header .navbar.active{
+    header .navbar.active{
         clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-      }
+    }
 
-      header .navbar a{
+    header .navbar a{
         display: block;
         padding:1.5rem;
         margin:1rem;
         font-size: 2rem;
         background:#eee;
-      }
+    }
 
       .detail-item .box-container .box{
           display: flex;

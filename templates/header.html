@@ -1,14 +1,15 @@
 <header>
 
-    <a href="#" class="logo"><i class="fa-brands fa-google-wallet"></i>resto.</a>
+    <a href="{% url 'main:home-page' %}" class="logo"><i class="fa-brands fa-google-wallet"></i>resto.</a>
 
     <nav class="navbar">
-        <a href="#">Главная</a>
-        <a href="#">Услуги</a>
+        <a href="{% url 'main:home-page' %}">Главная</a>
+        <a href="{% url 'main:massages' %}">Услуги</a>
         <a href="#">О нас</a>
     </nav>
+
     <div class="icons">
-        <i class="fa-solid fa-phone-volume"></i>
+        <i class="fa-solid fa-phone-volume" id="phone-number"></i>
         <i class="fas fa-bars" id="menu-bars"></i>
     </div>
 

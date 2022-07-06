@@ -1,15 +1,15 @@
 {% load static %}
 {% load main_tags %}
 {% get_comments as comments %}
+
 <section class="review" id="review">
 
     <h1 class="heading"> Отзывы </h1>
 
     <div class="swiper-container review-slider">
-        {% for comment in comments %}
         <div class="swiper-wrapper">
+            {% for comment in comments %}
             <div class="swiper-slide slide">
-                <i class="fas fa-quote-right"></i>
                 <div class="user">
                     <img src="{% static 'images/noavatar.png' %}" alt="">
                     <div class="user-info">
@@ -23,11 +23,9 @@
                         </div>
                     </div>
                 </div>
-                <p>{{ comment.body }}</p>
+                <p><strong>{{ comment.get_massage }}</strong>, {{ comment.body }}</p>
             </div>
-        {% endfor %}
-
-
+            {% endfor %}
         </div>
 
     </div>
